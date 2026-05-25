@@ -43,34 +43,7 @@ export default function JourneyPage() {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Simple countdown logic (Menuju Matcha Date)
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
-  
-  useEffect(() => {
-    if (!showCountdown) return;
-    // TANGGAL MATCHA DATE
-    // 23 Mei 2026 (Bulan di JS indexnya mulai dari 0, atau format string 'YYYY-MM-DD')
-    const matchaDate = new Date("2026-05-23T00:00:00").getTime();
-
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = now - matchaDate; // Sekarang menghitung waktu SEJAK tanggal tersebut (Count-Up)
-
-      if (distance < 0) {
-        // Jika karena alasan tertentu tanggalnya di masa depan
-        return;
-      }
-
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        mins: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        secs: Math.floor((distance % (1000 * 60)) / 1000),
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [showCountdown]);
+  // No interval needed for static date
 
   return (
     <main className="flex min-h-dvh flex-col items-center justify-center px-4 py-8 relative overflow-hidden">
@@ -115,21 +88,20 @@ export default function JourneyPage() {
             >
               <div className="flex items-center gap-2 text-pink-300 mb-4">
                 <Clock className="w-5 h-5" />
-                <h3 className="font-medium text-sm">Waktu Bersama Sejak Matcha Date 🍵</h3>
+                <h3 className="font-medium text-sm">Matcha Date Kita 🍵</h3>
               </div>
               
               <div className="flex gap-4 text-center w-full justify-center mb-6">
                 {[
-                  { label: "Hari", val: timeLeft.days },
-                  { label: "Jam", val: timeLeft.hours },
-                  { label: "Menit", val: timeLeft.mins },
-                  { label: "Detik", val: timeLeft.secs },
+                  { label: "Tanggal", val: "23" },
+                  { label: "Bulan", val: "05" },
+                  { label: "Tahun", val: "2026" },
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col items-center">
-                    <span className="text-2xl md:text-3xl font-bold text-white bg-black/40 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-xl border border-pink-500/20 shadow-inner">
+                    <span className="text-2xl md:text-3xl font-bold text-white bg-black/40 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-xl border border-pink-500/20 shadow-inner">
                       {item.val}
                     </span>
-                    <span className="text-[10px] text-pink-200/60 mt-1 uppercase tracking-wider">{item.label}</span>
+                    <span className="text-[10px] text-pink-200/60 mt-2 uppercase tracking-wider">{item.label}</span>
                   </div>
                 ))}
               </div>
