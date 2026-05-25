@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Upload {
+  id        String   @id @default(cuid())
+  imageUrl  String
+  createdAt DateTime @default(now())
+
+  @@map("uploads")
+}
+
+model Story {
+  id          String   @id @default(cuid())
+  content     String
+  date        DateTime @default(now())
+}
+
+model Answer {
+  id          String   @id @default(cuid())
+  question    String
+  response    String
+  createdAt   DateTime @default(now())
+}
