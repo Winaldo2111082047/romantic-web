@@ -54,10 +54,10 @@ export default function JourneyPage() {
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
-      const distance = matchaDate - now;
+      const distance = now - matchaDate; // Sekarang menghitung waktu SEJAK tanggal tersebut (Count-Up)
 
       if (distance < 0) {
-        clearInterval(interval);
+        // Jika karena alasan tertentu tanggalnya di masa depan
         return;
       }
 
@@ -115,7 +115,7 @@ export default function JourneyPage() {
             >
               <div className="flex items-center gap-2 text-pink-300 mb-4">
                 <Clock className="w-5 h-5" />
-                <h3 className="font-medium text-sm">Menuju Matcha Date Kita 🍵</h3>
+                <h3 className="font-medium text-sm">Waktu Bersama Sejak Matcha Date 🍵</h3>
               </div>
               
               <div className="flex gap-4 text-center w-full justify-center mb-6">

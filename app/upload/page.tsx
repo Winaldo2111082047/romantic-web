@@ -127,8 +127,8 @@ export default function UploadPage() {
                   className="flex flex-col items-center justify-center p-6 gap-3"
                 >
                   <UploadCloud className="w-10 h-10 text-pink-400/60 group-hover:text-pink-400 group-active:text-pink-400 transition-colors" />
-                  <p className="text-gray-300 font-medium text-sm md:text-base">Ketuk untuk mengambil foto</p>
-                  <p className="text-gray-500 text-xs">Hanya Kamera (Live Pap) 📸 • Maks 5MB</p>
+                  <p className="text-gray-300 font-medium text-sm md:text-base">Kasih pap imut kamu ehehe</p>
+                  <p className="text-gray-500 text-xs">yang imut ya</p>
                 </motion.div>
               )}
             </AnimatePresence>
