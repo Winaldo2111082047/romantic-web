@@ -48,7 +48,7 @@ export default function UploadPage() {
       const response = await fetch("/api/upload", { method: "POST", body: formData });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Gagal mengunggah foto.");
-      router.push("/story");
+      router.push("/journey");
     } catch (err: unknown) {
       setErrorMsg(err instanceof Error ? err.message : "Terjadi kesalahan.");
       setIsLoading(false);

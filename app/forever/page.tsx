@@ -159,9 +159,29 @@ export default function ForeverPage() {
             <motion.div
               animate={{ scale: [1, 1.25, 1], rotate: [0, 8, -8, 0] }}
               transition={{ repeat: Infinity, duration: 1.4 }}
-              className="text-6xl md:text-7xl"
+              className="text-6xl md:text-7xl mb-2"
             >
               ❤️
+            </motion.div>
+
+            {/* Foto Dia (Placeholder) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-pink-500/50 shadow-[0_0_20px_rgba(236,72,153,0.5)] mx-auto mb-2"
+            >
+              {/* GANTI FOTO DI SINI: Simpan foto bernama "foto-dia.jpg" di folder public/ */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="/foto-dia.jpg" 
+                alt="My Love" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback jika foto belum ditambahkan
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&q=80";
+                }}
+              />
             </motion.div>
 
             <h2 className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-primary to-pink-400 leading-tight">

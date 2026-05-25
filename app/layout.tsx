@@ -5,6 +5,7 @@ import { MusicProvider } from "@/contexts/MusicContext";
 import MusicPlayer from "@/components/MusicPlayer";
 import GlobalEffects from "@/components/GlobalEffects";
 import LoadingScreen from "@/components/LoadingScreen";
+import LoveLetter from "@/components/LoveLetter";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
         <MusicProvider>
           <LoadingScreen />
           <GlobalEffects />
+          <LoveLetter />
           {children}
           <MusicPlayer />
         </MusicProvider>
